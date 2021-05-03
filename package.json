@@ -1,0 +1,19 @@
+{
+  "name": "game-tracker",
+  "version": "1.0.0",
+  "description": "Created for our Discord server to track users presence",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "NurettinSelim",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.5.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/NurettinSelim/Discord-Game-Tracker.git"
+  }
+}
