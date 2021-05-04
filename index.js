@@ -18,7 +18,9 @@ const client = new Discord.Client({
 var LocalStorage = require('node-localstorage').LocalStorage;
 localStorage = new LocalStorage('./local');
 
-client.login(process.env.GAME_TRACKER_TOKEN);
+const { TOKEN, USER_ID } = require('./config')
+
+client.login(TOKEN);
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
@@ -41,7 +43,7 @@ client.on('presenceUpdate', async (oldPresence, newPresence) => {
             } catch (error) {
                 // console.log(error)
             }
-            if (activity.name == "VALORANT" && newPresence.userID == process.env.SOME_USER_ID) {
+            if (activity.name == "VALORANT" && newPresence.userID == USER_ID) {
                 try {
                     let channel = await client.channels.fetch("838673685207580702")
                     let newNumber = parseInt(localStorage.getItem('count')) + 1
