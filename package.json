@@ -10,7 +10,8 @@
   "author": "NurettinSelim",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^12.5.3"
+    "discord.js": "^12.5.3",
+    "node-localstorage": "^2.1.6"
   },
   "repository": {
     "type": "git",

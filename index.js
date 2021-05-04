@@ -15,6 +15,9 @@ const client = new Discord.Client({
     ws: { intents: myIntents }
 });
 
+var LocalStorage = require('node-localstorage').LocalStorage;
+localStorage = new LocalStorage('./local');
+
 client.login(process.env.GAME_TRACKER_TOKEN);
 
 client.on('ready', () => {
@@ -41,7 +44,9 @@ client.on('presenceUpdate', async (oldPresence, newPresence) => {
             if (activity.name == "VALORANT" && newPresence.userID == process.env.SOME_USER_ID) {
                 try {
                     let channel = await client.channels.fetch("838673685207580702")
-                    channel.send(`Bırakıyorum dememiş miydin?`)
+                    let newNumber = parseInt(localStorage.getItem('count')) + 1
+                    channel.send(`Bırakıyorum dememiş miydin, ${newNumber}. kez hatırlatıyorum :(`)
+                    localStorage.setItem('count', newNumber);
                 } catch (error) {
                     // console.log(error)
                 }
