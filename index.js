@@ -36,7 +36,11 @@ client.on('presenceUpdate', async (oldPresence, newPresence) => {
     // if (!newPresence.activities) return false;
 
     newPresence.activities.forEach(async activity => {
+        if (newPresence.userID == "235088799074484224" && newPresence.userID == "252128902418268161")
+            return false;
+        
         if (activity.type == "PLAYING") {
+            
             try {
                 let channel = await client.channels.fetch("838673685207580702")
                 channel.send(`${newPresence.user} ${activity.name} oynamaya başladı!`)
